@@ -18,7 +18,7 @@ class MyRewards extends StatelessWidget {
         elevation: 0.0,
         titleTextStyle: const TextStyle(
             color: kPrimaryTextColor,
-            fontSize: 16,
+            fontSize: 20,
             fontWeight: FontWeight.w500),
         title: const Text('Rewards'),
       ),
