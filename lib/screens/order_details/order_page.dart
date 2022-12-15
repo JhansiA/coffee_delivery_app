@@ -25,7 +25,7 @@ class OrderPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        titleTextStyle: const TextStyle(color: kPrimaryTextColor, fontSize: 16),
+        titleTextStyle: const TextStyle(color: kPrimaryTextColor, fontSize: 20),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
