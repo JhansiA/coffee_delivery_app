@@ -1,6 +1,6 @@
 import 'package:coffee_delivery_app/components/rounded_button.dart';
 import 'package:coffee_delivery_app/constants.dart';
-import 'package:coffee_delivery_app/screens/home_page/home_page.dart';
+import 'package:coffee_delivery_app/screens/main_page.dart';
 import 'package:flutter/material.dart';
 
 class OrderSuccess extends StatelessWidget {
@@ -42,7 +42,8 @@ class OrderSuccess extends StatelessWidget {
                 width: double.infinity,
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => const HomePage()),
+                      MaterialPageRoute(
+                          builder: (context) => const MainHomePage()),
                       (Route<dynamic> route) => false);
                 },
                 widget: const Text('Track My Order',
