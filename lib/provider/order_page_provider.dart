@@ -77,6 +77,12 @@ class OrderPageProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void addToRedeemCart(Product product) {
+    _cartItems.add(product);
+    cartItemCount = cartItemCount + product.quantity;
+    notifyListeners();
+  }
+
   void removeFromCart(int index) {
     cartItemCount = cartItemCount - _cartItems[index].quantity;
     _cartItems.removeAt(index);
