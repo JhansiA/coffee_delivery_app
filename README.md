@@ -7,7 +7,9 @@ Design taken from [ui8](https://ui8.net/fishgrid/products/brew-co---coffee-deliv
 # App visuals
 
 
-https://user-images.githubusercontent.com/37522745/208111105-0f5a2aff-4f01-47cc-be06-ff381779b5ef.mp4
+
+https://user-images.githubusercontent.com/37522745/208111554-4ec601ef-59df-404e-b34c-23b69933ac0e.mp4
+
 
 
 ## Getting Started
