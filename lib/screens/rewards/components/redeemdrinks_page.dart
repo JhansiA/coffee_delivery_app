@@ -30,7 +30,7 @@ class RedeemDrinks extends StatelessWidget {
         title: const Text('Redeem'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView.builder(
             itemCount: products.length,
             itemBuilder: (context, index) {
@@ -94,6 +94,9 @@ class ProductDetails extends StatelessWidget {
                 ],
               ),
             ],
+          ),
+          const SizedBox(
+            width: 12.0,
           ),
           RoundedButton(
             width: 75,
