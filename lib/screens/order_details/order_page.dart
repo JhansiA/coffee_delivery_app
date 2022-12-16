@@ -1,3 +1,4 @@
+import 'package:coffee_delivery_app/components/appbar.dart';
 import 'package:coffee_delivery_app/components/rounded_button.dart';
 import 'package:coffee_delivery_app/constants.dart';
 import 'package:coffee_delivery_app/models/product.dart';
@@ -21,20 +22,9 @@ class OrderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kDefaultBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        titleTextStyle: const TextStyle(color: kPrimaryTextColor, fontSize: 20),
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back, color: kPrimaryTextColor)),
-        title: const Text('Details'),
-        actions: const [
-          OrderPageCartIcon(),
-        ],
+      appBar: AppBarWithLeadingAndTitle(
+        title: 'Details',
+        actions: const [OrderPageCartIcon()],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),

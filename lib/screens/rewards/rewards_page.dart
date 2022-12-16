@@ -1,3 +1,4 @@
+import 'package:coffee_delivery_app/components/appbar.dart';
 import 'package:coffee_delivery_app/constants.dart';
 import 'package:coffee_delivery_app/screens/home_page/components/loyalty_card.dart';
 import 'package:flutter/material.dart';
@@ -12,16 +13,8 @@ class MyRewards extends StatelessWidget {
     return Scaffold(
       // extendBody: true,
       backgroundColor: kDefaultBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        titleTextStyle: const TextStyle(
-            color: kPrimaryTextColor,
-            fontSize: 20,
-            fontWeight: FontWeight.w500),
-        title: const Text('Rewards'),
-      ),
+      appBar: AppBarWithTitle(title: 'Rewards'),
+
       body: SafeArea(
         bottom: false,
         child: Column(

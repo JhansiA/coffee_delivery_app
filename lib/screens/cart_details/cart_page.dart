@@ -1,3 +1,4 @@
+import 'package:coffee_delivery_app/components/appbar.dart';
 import 'package:coffee_delivery_app/constants.dart';
 import 'package:coffee_delivery_app/models/product.dart';
 import 'package:coffee_delivery_app/provider/order_page_provider.dart';
@@ -17,19 +18,7 @@ class CartPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kDefaultBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back, color: kPrimaryTextColor)),
-        ),
-      ),
+      appBar: AppBarWithLeadingAndTitle(title: ''),
       body: SizedBox(
         height: MediaQuery.of(context).size.height * 0.8,
         child: Padding(
