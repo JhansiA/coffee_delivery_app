@@ -14,20 +14,11 @@ class MyOrders extends StatefulWidget {
 class _MyOrdersState extends State<MyOrders>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  bool showFab = true;
+
   @override
   void initState() {
     super.initState();
-
     _tabController = TabController(vsync: this, initialIndex: 0, length: 2);
-    _tabController.addListener(() {
-      if (_tabController.index == 0) {
-        showFab = true;
-      } else {
-        showFab = false;
-      }
-      setState(() {});
-    });
   }
 
   @override
@@ -72,7 +63,7 @@ class _MyOrdersState extends State<MyOrders>
           padding: const EdgeInsets.only(top: 40, left: 30, right: 30),
           child: TabBarView(controller: _tabController, children: [
             currentorder.isEmpty
-                ? const Text('No ongoing order available!',
+                ? const Text('No ongoing order(s) available!',
                     style: TextStyle(
                         color: kPrimaryTextColor,
                         fontSize: 16,
@@ -87,7 +78,7 @@ class _MyOrdersState extends State<MyOrders>
                       );
                     }),
             orderhistory.isEmpty
-                ? const Text('No order history available!',
+                ? const Text('No order(s) history available!',
                     style: TextStyle(
                         color: kPrimaryTextColor,
                         fontSize: 16,
