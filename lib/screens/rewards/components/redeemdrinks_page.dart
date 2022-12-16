@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:coffee_delivery_app/components/appbar.dart';
 import 'package:coffee_delivery_app/components/rounded_button.dart';
 import 'package:coffee_delivery_app/constants.dart';
 import 'package:coffee_delivery_app/models/product.dart';
@@ -14,21 +15,7 @@ class RedeemDrinks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kDefaultBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        titleTextStyle: const TextStyle(
-            color: kPrimaryTextColor,
-            fontSize: 20,
-            fontWeight: FontWeight.w500),
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back, color: kPrimaryTextColor)),
-        title: const Text('Redeem'),
-      ),
+      appBar: AppBarWithLeadingAndTitle(title: 'Redeem'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: ListView.builder(

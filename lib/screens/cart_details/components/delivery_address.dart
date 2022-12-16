@@ -1,4 +1,5 @@
 import 'package:coffee_delivery_app/constants.dart';
+import 'package:coffee_delivery_app/models/user.dart';
 import 'package:flutter/material.dart';
 
 class DeliverAddress extends StatelessWidget {
@@ -41,15 +42,15 @@ class DeliverAddress extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Text('Anderson',
-                      style: TextStyle(
+                children: [
+                  Text(user.name,
+                      style: const TextStyle(
                           color: kPrimaryTextColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w500)),
                   Text(
-                    'Delivery Address hhhhhhhhjdjsdjskdjskdksjfksjfksjfjsfjskjfnkfskfsfjskjfdksjfdksfksfhkshfksh',
-                    style: TextStyle(
+                    user.address,
+                    style: const TextStyle(
                         color: kSecondaryTextColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

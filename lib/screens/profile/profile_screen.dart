@@ -1,3 +1,4 @@
+import 'package:coffee_delivery_app/components/appbar.dart';
 import 'package:coffee_delivery_app/constants.dart';
 import 'package:coffee_delivery_app/models/user.dart';
 import 'package:flutter/material.dart';
@@ -10,24 +11,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kDefaultBackgroundColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        titleTextStyle: const TextStyle(
-            color: kPrimaryTextColor,
-            fontSize: 20,
-            fontWeight: FontWeight.w500),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 15.0),
-          child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back, color: kPrimaryTextColor)),
-        ),
-        title: const Text('Profile'),
-      ),
+      appBar: AppBarWithLeadingAndTitle(title: 'Profile'),
       body: SafeArea(
         bottom: false,
         child: Padding(
