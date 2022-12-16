@@ -3,23 +3,32 @@ import 'package:flutter/material.dart';
 
 enum PaymentMethod { onlineBanking, creditCard }
 
-class PaymentOptions extends StatelessWidget {
+class PaymentOptions extends StatefulWidget {
   const PaymentOptions({
     Key? key,
   }) : super(key: key);
 
-  // PaymentMethod? _method = PaymentMethod.onlineBanking;
+  @override
+  State<PaymentOptions> createState() => _PaymentOptionsState();
+}
 
+class _PaymentOptionsState extends State<PaymentOptions> {
+  PaymentMethod? paymentMethod;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         PaymentDetails(
-          // method: _method,
+          paymentMethod: paymentMethod,
           payment: PaymentMethod.onlineBanking,
           text: 'Online Banking',
           subtext: 'maybank2u (one-time)',
+          onChanged: (value) {
+            setState(() {
+              paymentMethod = value;
+            }); //selected value
+          },
           childWidget: [
             const SizedBox(
               width: 20,
@@ -34,10 +43,15 @@ class PaymentOptions extends StatelessWidget {
           height: 20,
         ),
         PaymentDetails(
-          // method: _method,
+          paymentMethod: paymentMethod,
           payment: PaymentMethod.creditCard,
           text: 'Credit Card',
           subtext: '2540 xxxx xxxx 2648',
+          onChanged: (value) {
+            setState(() {
+              paymentMethod = value;
+            }); //selected value
+          },
           childWidget: [
             Image.asset(
               'assets/icons/visa.png',
@@ -54,27 +68,22 @@ class PaymentOptions extends StatelessWidget {
   }
 }
 
-class PaymentDetails extends StatefulWidget {
+class PaymentDetails extends StatelessWidget {
   const PaymentDetails({
     super.key,
-    // this.method,
     required this.payment,
     required this.text,
     required this.subtext,
     required this.childWidget,
+    required this.paymentMethod,
+    required this.onChanged,
   });
 
-  // final PaymentMethod? method;
   final PaymentMethod payment;
   final String text, subtext;
   final List<Widget> childWidget;
-
-  @override
-  State<PaymentDetails> createState() => _PaymentDetailsState();
-}
-
-class _PaymentDetailsState extends State<PaymentDetails> {
-  PaymentMethod? _method = PaymentMethod.onlineBanking;
+  final PaymentMethod? paymentMethod;
+  final Function(PaymentMethod?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -87,21 +96,17 @@ class _PaymentDetailsState extends State<PaymentDetails> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Radio(
-              fillColor: MaterialStateProperty.resolveWith<Color>(
-                  (Set<MaterialState> states) {
-                if (states.contains(MaterialState.disabled)) {
-                  return kSecondaryBackgroundColor.withOpacity(.32);
-                }
-                return kSecondaryBackgroundColor;
-              }),
-              value: widget.payment,
-              groupValue: _method,
-              onChanged: (value) {
-                setState(() {
-                  _method = value;
-                  print(_method);
-                }); //selected value
-              }),
+            fillColor: MaterialStateProperty.resolveWith<Color>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.disabled)) {
+                return kSecondaryBackgroundColor.withOpacity(.32);
+              }
+              return kSecondaryBackgroundColor;
+            }),
+            value: payment,
+            groupValue: paymentMethod,
+            onChanged: onChanged,
+          ),
           const SizedBox(
             width: 20,
           ),
@@ -109,7 +114,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(widget.text,
+              Text(text,
                   style: const TextStyle(
                       color: kPrimaryTextColor,
                       fontSize: 16,
@@ -118,7 +123,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 height: 6,
               ),
               Text(
-                widget.subtext,
+                subtext,
                 style: const TextStyle(
                   color: kSecondaryTextColor,
                   fontSize: 14,
@@ -130,7 +135,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
           const SizedBox(
             width: 20,
           ),
-          Row(children: widget.childWidget),
+          Row(children: childWidget),
         ],
       ),
     );
